@@ -1,1 +1,6 @@
-# brain-tumor-seg
+# Brain Tumor Segmentation Using UNet-VGG19
+I used [LGG Segmentation Dataset](https://www.kaggle.com/mateuszbuda/lgg-mri-segmentation) from Kaggle which includes MR images and manual FLAIR abnormality segmentation masks. In the dataset, there are 2556 no brain tumor images and 1373 brain tumor images.
+[U-net](https://arxiv.org/pdf/1505.04597.pdf) can be thought of broadly as an encoder followed by a decoder network, and I used it for the segmentation of brain tumors. The encoder is the first half of the architecture diagram which is usually a pre-trained classification network like VGG/ResNet. In order to encode the input image into multiple feature representations at multiple levels, convolution blocks are applied followed by maxpool downsampling. The second half of the architecture is the decoder. In order to obtain a dense classification, the encoder needs to semantically project the discriminative features (lower resolution) it learned onto the pixel space (higher resolution). Upsampling and concatenation are followed by regular convolution operations in the decoder.
+![117498684-cc1d1780-af82-11eb-8d6f-b41779562bb7](https://user-images.githubusercontent.com/57661230/204064328-628662b9-02c4-47f7-b420-1d3f2cc1cf34.png)
+
+![image](https://user-images.githubusercontent.com/57661230/204063520-1bf69241-7aba-459a-965d-5d16c1a7439c.png)
